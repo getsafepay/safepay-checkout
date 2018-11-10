@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Safepay checkout demo</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="./index.css" /> -->
+
+	<script src="../../dist/safepay-checkout.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+
+	<div id="result"></div>
+
+	<script>
+
+        safepay.Button.render({
+
+            env: 'local',
+
+            amount: '6800',
+
+            client: {
+            	"local": "1231231231231231231231"
+            },
+
+            payment: function (data, actions) {
+            	return actions.payment.create({
+            		transaction: {
+            			amount: '6500',
+            			currency: 'PKR'
+            		}
+            	})
+            },
+
+            // When the iframe window calls `window.xprops.onLogin(email)` this callback will be called
+
+            onCheckout: function(email) {
+
+                // Display the email address that was used to log in
+
+                document.querySelector('#result').innerText = email + ' completed payment!';
+            }
+
+        }, '#container');
+
+    </script>
+</body>
+</html>

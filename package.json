@@ -1,0 +1,21 @@
+{
+  "name": "checkout",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Ziyad Parekh",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "demo": "echo 'Navigate to http://localhost:1337/demo/popup/index.html' && serve . -l 1337",
+    "babel": "babel src/ --out-dir dist/module",
+    "webpack": "babel-node --plugins=transform-es2015-modules-commonjs ./node_modules/.bin/webpack --progress",
+    "build": "yarn run clean && yarn run babel && yarn run webpack",
+    "clean": "rm -rf dist coverage"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "grumbler-scripts": "^3",
+    "serve": "^10.0.2",
+    "zoid": "^6.0.67"
+  }
+}
