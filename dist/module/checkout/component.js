@@ -1,7 +1,4 @@
 import _extends from "@babel/runtime/helpers/esm/extends";
-
-var _payment;
-
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api, ENV } from '../api';
@@ -69,21 +66,27 @@ export var Checkout = create({
         }
       }
     },
-    payment: (_payment = {
+    payment: {
       type: 'function',
-      required: true
-    }, _payment["required"] = false, _payment.memoize = true, _payment.promisify = true, _payment.queryParam = function queryParam(payment) {
-      return "beacon";
-    }, _payment.queryValue = function queryValue(payment) {
-      return payment();
-    }, _payment.childDecorate = function childDecorate(payment) {
-      var token = getQueryParam('beacon');
-      return token ? ZalgoPromise.resolve(token) : payment;
-    }, _payment.validate = function validate(payment, props) {
-      if (!payment && !props.url) {
-        throw new Error("Expected either props.payment or props.url to be passed");
+      required: true,
+      memoize: true,
+      promisify: true,
+      queryParam: function queryParam(payment) {
+        return "beacon";
+      },
+      queryValue: function queryValue(payment) {
+        return payment();
+      },
+      childDecorate: function childDecorate(payment) {
+        var token = getQueryParam('beacon');
+        return token ? ZalgoPromise.resolve(token) : payment;
+      },
+      validate: function validate(payment, props) {
+        if (!payment && !props.url) {
+          throw new Error("Expected either props.payment or props.url to be passed");
+        }
       }
-    }, _payment),
+    },
     onCheckout: {
       type: 'function',
       required: false

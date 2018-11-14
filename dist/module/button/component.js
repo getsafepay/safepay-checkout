@@ -54,7 +54,6 @@ export var Button = create({
           };
           this.memoizedToken = ZalgoPromise.try(original, this, [data, actions]);
           this.memoizedToken = this.memoizedToken.then(function (token) {
-            console.log(token);
             return token;
           });
           return this.memoizedToken;
@@ -62,7 +61,7 @@ export var Button = create({
       }
     },
     amount: {
-      type: 'string',
+      type: 'number',
       required: false
     },
     onCheckout: {

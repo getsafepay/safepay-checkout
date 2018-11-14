@@ -2,8 +2,7 @@ import { Fetcher } from './rest';
 import { Config } from './config';
 import { ZalgoPromise } from 'zalgo-promise/src';
 
-function createPaymentTracker(env="local", client={}, details={}) {
-	let clientId = client[env];
+function createPaymentTracker(env="local", client="", details={}) {
 	let { transaction } = details;
 	
 	if (!transaction) {
@@ -17,17 +16,22 @@ function createPaymentTracker(env="local", client={}, details={}) {
 		return
 	}
 
-	return ZalgoPromise.resolve("tracker_1234567")
-
-	// const fetch = new Fetcher();
-	// return fetch.post({
-	// 	url: Config.paymentApiUrls[env],
-	// 	data: {
-	// 		environment: env,
-	// 		client: clientId,
-	// 		amount: amount
-	// 	}
-	// })
+	const fetch = new Fetcher();
+  console.log(Config.paymentApiUrls[env])
+	return fetch.post(
+	  Config.paymentApiUrls[env], {
+	 		environment: env,
+	 		client: client,
+	 		amount: amount
+	 	}
+	).then(({ data }) => {
+    return data.data
+  }).then(({ token }) => {
+    return token
+  }).catch(err => {
+    console.log(err)
+    return err
+  })
 }
 
 export let api = {

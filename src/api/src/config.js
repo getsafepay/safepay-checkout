@@ -16,15 +16,15 @@ export let Config = {
 		[ ENV.PRODUCTION ]: "/trojan/button"
 	},
 
-    paymentApiUri:    `/api/v1/order/init`,
+  paymentApiUri:    `/transaction/v1/init`,
 
-    get safepayDomains() {
-    	return {
-    		[ ENV.LOCAL ]: "http://localhost:3000",
-			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
-			[ ENV.PRODUCTION ]: "https://production.getsafepay.com"
-    	}
-    },
+  get safepayDomains() {
+  	return {
+  		[ ENV.LOCAL ]: "http://localhost:3000",
+		  [ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
+		  [ ENV.PRODUCTION ]: "https://production.getsafepay.com"
+  	}
+  },
 
 	get buttonDomains() {
 		return {
@@ -66,7 +66,7 @@ export let Config = {
 
 	get orderApiUrls() {
 		return {
-			[ ENV.LOCAL ]: "http://localhost:4020",
+			[ ENV.LOCAL ]: "http://localhost:4010",
 			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com/order",
 			[ ENV.PRODUCTION ]: "https://production.getsafepay.com/order"
 		}

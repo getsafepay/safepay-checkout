@@ -8,14 +8,13 @@ function createPaymentTracker(env, client, details) {
   }
 
   if (client === void 0) {
-    client = {};
+    client = "";
   }
 
   if (details === void 0) {
     details = {};
   }
 
-  var clientId = client[env];
   var _details = details,
       transaction = _details.transaction;
 
@@ -32,15 +31,22 @@ function createPaymentTracker(env, client, details) {
     return;
   }
 
-  return ZalgoPromise.resolve("tracker_1234567"); // const fetch = new Fetcher();
-  // return fetch.post({
-  // 	url: Config.paymentApiUrls[env],
-  // 	data: {
-  // 		environment: env,
-  // 		client: clientId,
-  // 		amount: amount
-  // 	}
-  // })
+  var fetch = new Fetcher();
+  console.log(Config.paymentApiUrls[env]);
+  return fetch.post(Config.paymentApiUrls[env], {
+    environment: env,
+    client: client,
+    amount: amount
+  }).then(function (_ref) {
+    var data = _ref.data;
+    return data.data;
+  }).then(function (_ref2) {
+    var token = _ref2.token;
+    return token;
+  }).catch(function (err) {
+    console.log(err);
+    return err;
+  });
 }
 
 export var api = {

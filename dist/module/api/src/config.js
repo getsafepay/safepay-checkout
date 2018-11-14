@@ -5,7 +5,7 @@ export var Config = {
   env: ENV.LOCAL,
   checkoutUris: (_checkoutUris = {}, _checkoutUris[ENV.LOCAL] = "/checkout", _checkoutUris[ENV.SANDBOX] = "/dev/checkout", _checkoutUris[ENV.PRODUCTION] = "/now/checkout", _checkoutUris),
   buttonUris: (_buttonUris = {}, _buttonUris[ENV.LOCAL] = "", _buttonUris[ENV.SANDBOX] = "/trojan/button", _buttonUris[ENV.PRODUCTION] = "/trojan/button", _buttonUris),
-  paymentApiUri: "/api/v1/order/init",
+  paymentApiUri: "/transaction/v1/init",
 
   get safepayDomains() {
     var _ref;
@@ -44,7 +44,7 @@ export var Config = {
   get orderApiUrls() {
     var _ref6;
 
-    return _ref6 = {}, _ref6[ENV.LOCAL] = "http://localhost:4020", _ref6[ENV.SANDBOX] = "https://sandbox.getsafepay.com/order", _ref6[ENV.PRODUCTION] = "https://production.getsafepay.com/order", _ref6;
+    return _ref6 = {}, _ref6[ENV.LOCAL] = "http://localhost:4010", _ref6[ENV.SANDBOX] = "https://sandbox.getsafepay.com/order", _ref6[ENV.PRODUCTION] = "https://production.getsafepay.com/order", _ref6;
   },
 
   get paymentApiUrls() {

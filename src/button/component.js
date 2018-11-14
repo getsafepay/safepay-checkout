@@ -68,7 +68,7 @@ export const Button = create({
             }
         },
         amount: {
-            type: 'string',
+            type: 'number',
             required: false,
         },
         onCheckout: {

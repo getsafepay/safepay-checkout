@@ -18,16 +18,16 @@
 
             env: 'local',
 
-            amount: '6800',
+            amount: 6800.57,
 
             client: {
-            	"local": "1231231231231231231231"
+            	"local": "sec_4f84abd2-0bae-4476-be6b-22c8c9e35133"
             },
 
             payment: function (data, actions) {
             	return actions.payment.create({
             		transaction: {
-            			amount: '6500',
+            			amount: 6800.57,
             			currency: 'PKR'
             		}
             	})
