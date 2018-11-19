@@ -1,0 +1,1 @@
+export { getContainerStyle } from './base';

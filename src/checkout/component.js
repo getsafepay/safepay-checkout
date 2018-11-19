@@ -1,6 +1,7 @@
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api, ENV } from '../api';
+import { containerTemplate, componentTemplate } from './templates';
 
 export const Checkout = create({
     tag: 'safepay-checkout',
@@ -25,6 +26,7 @@ export const Checkout = create({
             return Config.checkoutUrls[env]
         });
     },
+    
     contexts: {
         iframe: false,
         popup:  true
@@ -42,6 +44,10 @@ export const Checkout = create({
         width:  '450px',
         height: '535px'
     },
+
+    prerenderTemplate: componentTemplate,
+    containerTemplate,
+
     props: {
         client: {
             type: 'object',
@@ -96,6 +102,6 @@ export const Checkout = create({
         onCheckout: {
             type: 'function',
             required: false
-        }
+        },
     }
 })

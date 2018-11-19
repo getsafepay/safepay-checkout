@@ -1,0 +1,1 @@
+export { getSandboxStyle } from './base';

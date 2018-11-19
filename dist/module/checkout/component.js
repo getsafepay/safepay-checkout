@@ -2,6 +2,7 @@ import _extends from "@babel/runtime/helpers/esm/extends";
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api, ENV } from '../api';
+import { containerTemplate, componentTemplate } from './templates';
 export var Checkout = create({
   tag: 'safepay-checkout',
   name: 'spcheckout',
@@ -38,6 +39,8 @@ export var Checkout = create({
     width: '450px',
     height: '535px'
   },
+  prerenderTemplate: componentTemplate,
+  containerTemplate: containerTemplate,
   props: {
     client: {
       type: 'object',
