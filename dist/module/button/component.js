@@ -1,8 +1,9 @@
-/* @jsx jsxDom */
+import _extends from "@babel/runtime/helpers/esm/extends";
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api } from '../api';
 import { containerTemplate } from './templates';
+import { redirect as redir } from '../lib';
 export var Button = create({
   tag: 'safepay-button',
   name: 'spbutton',
@@ -57,6 +58,22 @@ export var Button = create({
             return token;
           });
           return this.memoizedToken;
+        };
+      }
+    },
+    onCancel: {
+      type: 'function',
+      required: false,
+      noop: true,
+      decorate: function decorate(original) {
+        return function decorateOnCancel(data, actions) {
+          var redirect = function redirect(win, url) {
+            return ZalgoPromise.all([redir(win || window.top, url || data.cancelUrl), actions.close()]);
+          };
+
+          return original.call(this, data, _extends({}, actions, {
+            redirect: redirect
+          }));
         };
       }
     },

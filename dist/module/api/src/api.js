@@ -32,7 +32,6 @@ function createPaymentTracker(env, client, details) {
   }
 
   var fetch = new Fetcher();
-  console.log(Config.paymentApiUrls[env]);
   return fetch.post(Config.paymentApiUrls[env], {
     environment: env,
     client: client,

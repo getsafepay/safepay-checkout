@@ -38,7 +38,6 @@ export function containerTemplate(_ref) {
     event.preventDefault();
     event.stopPropagation();
     actions.close();
-    debugger;
   }
 
   function focus(event) {
@@ -47,7 +46,7 @@ export function containerTemplate(_ref) {
 
     if (isIos()) {
       // eslint-disable-next-line no-alert
-      window.alert('Please switch tabs to reactivate the PayPal window');
+      window.alert('Please switch tabs to reactivate the Safepay window');
     } else {
       ZalgoPromise.try(actions.focus).catch(actions.close);
     }

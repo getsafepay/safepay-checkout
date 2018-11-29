@@ -3,6 +3,7 @@ import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api, ENV } from '../api';
 import { containerTemplate, componentTemplate } from './templates';
+import { redirect as redir, getQueryParam } from '../lib';
 export var Checkout = create({
   tag: 'safepay-checkout',
   name: 'spcheckout',
@@ -88,6 +89,44 @@ export var Checkout = create({
         if (!payment && !props.url) {
           throw new Error("Expected either props.payment or props.url to be passed");
         }
+      }
+    },
+    onCancel: {
+      type: 'function',
+      required: false,
+      once: true,
+      noop: true,
+      decorate: function decorate(original) {
+        return function decorateOnCancel(data, actions) {
+          var _this = this;
+
+          if (actions === void 0) {
+            actions = {};
+          }
+
+          var close = function close() {
+            return ZalgoPromise.try(function () {
+              if (actions.close) {
+                return actions.close();
+              }
+            }).then(function () {
+              return _this.closeComponent();
+            });
+          };
+
+          var redirect = function redirect(win, url) {
+            return ZalgoPromise.all([redir(win || window.top, url || data.cancelUrl), close()]);
+          };
+
+          return ZalgoPromise.try(function () {
+            return original.call(_this, data, _extends({}, actions, {
+              close: close,
+              redirect: redirect
+            }));
+          }).finally(function () {
+            _this.close();
+          });
+        };
       }
     },
     onCheckout: {

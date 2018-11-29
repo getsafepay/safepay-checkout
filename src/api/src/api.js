@@ -17,7 +17,6 @@ function createPaymentTracker(env="local", client="", details={}) {
 	}
 
 	const fetch = new Fetcher();
-  console.log(Config.paymentApiUrls[env])
 	return fetch.post(
 	  Config.paymentApiUrls[env], {
 	 		environment: env,
