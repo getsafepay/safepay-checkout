@@ -1,4 +1,7 @@
 import _extends from "@babel/runtime/helpers/esm/extends";
+
+var _onCheckout;
+
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api, ENV } from '../api';
@@ -129,9 +132,19 @@ export var Checkout = create({
         };
       }
     },
-    onCheckout: {
+    onCheckout: (_onCheckout = {
       type: 'function',
       required: false
-    }
+    }, _onCheckout["required"] = false, _onCheckout.noop = true, _onCheckout.once = true, _onCheckout.decorate = function decorate(original) {
+      return function decorateOnCheckout(data) {
+        var _this2 = this;
+
+        return ZalgoPromise.try(function () {
+          return original.call(_this2, data);
+        }).finally(function () {
+          _this2.close();
+        });
+      };
+    }, _onCheckout)
   }
 });

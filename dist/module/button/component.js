@@ -83,7 +83,14 @@ export var Button = create({
     },
     onCheckout: {
       type: 'function',
-      required: false
+      required: false,
+      noop: true,
+      once: true,
+      decorate: function decorate(original) {
+        return function decorateOnCheckout(data) {
+          return original.call(this, data);
+        };
+      }
     }
   }
 });

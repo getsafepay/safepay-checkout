@@ -71,7 +71,7 @@ export const Button = create({
       required: false,
       noop:     true,
 
-      decorate(original) : Function {
+      decorate(original) {
         return function decorateOnCancel(data, actions) {
           let redirect = (win, url) => {
             return ZalgoPromise.all([
@@ -90,7 +90,15 @@ export const Button = create({
     },
     onCheckout: {
       type: 'function',
-      required: false
+      required: false,
+      noop:     true,
+      once:     true,
+
+      decorate(original) {
+        return function decorateOnCheckout(data) {
+          return original.call(this, data);
+        }
+      }
     }
   }
 })

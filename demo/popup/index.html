@@ -40,11 +40,9 @@
 
             // When the iframe window calls `window.xprops.onLogin(email)` this callback will be called
 
-            onCheckout: function(email) {
-
-                // Display the email address that was used to log in
-
-                document.querySelector('#result').innerText = email + ' completed payment!';
+            onCheckout: function(data, actions) {
+              console.log(data)
+              console.log("You completed the payment!");
             }
 
         }, '#container');
