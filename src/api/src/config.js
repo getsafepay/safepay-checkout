@@ -6,29 +6,33 @@ export let Config = {
 
 	checkoutUris: {
 		[ ENV.LOCAL ]: "/checkout",
-		[ ENV.SANDBOX ]: "/dev/checkout",
-		[ ENV.PRODUCTION ]: "/now/checkout"
+		[ ENV.DEV ]: "/checkout",
+		[ ENV.SANDBOX ]: "/checkout",
+		[ ENV.PRODUCTION ]: "/checkout"
 	},
 
 	buttonUris: {
 		[ ENV.LOCAL ]: "", //"/trojan/button",
-		[ ENV.SANDBOX ]: "/trojan/button",
-		[ ENV.PRODUCTION ]: "/trojan/button"
+		[ ENV.DEV ]: "/button", //"/trojan/button",
+		[ ENV.SANDBOX ]: "/button",
+		[ ENV.PRODUCTION ]: "/button"
 	},
 
-  paymentApiUri:    `/transaction/v1/init`,
+  paymentApiUri:    `/v1/init`,
 
   get safepayDomains() {
   	return {
   		[ ENV.LOCAL ]: "http://localhost:3000",
-		  [ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
-		  [ ENV.PRODUCTION ]: "https://production.getsafepay.com"
+  		[ ENV.DEV ]: "https://dev.api.getsafepay.com",
+		  [ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
+		  [ ENV.PRODUCTION ]: "https://getsafepay.com"
   	}
   },
 
 	get buttonDomains() {
 		return {
 			[ ENV.LOCAL ]: "http://localhost:3000",
+			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
 			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
 			[ ENV.PRODUCTION ]: "https://production.getsafepay.com"
 		}
@@ -37,6 +41,7 @@ export let Config = {
 	get checkoutDomains() {
 		return {
 			[ ENV.LOCAL ]: "http://localhost:3001",
+			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
 			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
 			[ ENV.PRODUCTION ]: "https://production.getsafepay.com"
 		}	
@@ -48,6 +53,7 @@ export let Config = {
 
 		return {
 			[ ENV.LOCAL ]: `${spUrls.local}${checkoutUris.local}`,
+			[ ENV.DEV ]: 		`${spUrls.dev}${checkoutUris.dev}`,
 			[ ENV.SANDBOX ]: `${spUrls.sandbox}${checkoutUris.sandbox}`,
 			[ ENV.PRODUCTION ]: `${spUrls.production}${checkoutUris.production}`	
 		}
@@ -59,6 +65,7 @@ export let Config = {
 
 		return {
 			[ ENV.LOCAL ]: `${spUrls.local}${buttonUris.local}`,
+			[ ENV.DEV ]: 	`${spUrls.dev}${buttonUris.dev}`,
 			[ ENV.SANDBOX ]: `${spUrls.sandbox}${buttonUris.sandbox}`,
 			[ ENV.PRODUCTION ]: `${spUrls.production}${buttonUris.production}`
 		}
@@ -67,6 +74,7 @@ export let Config = {
 	get orderApiUrls() {
 		return {
 			[ ENV.LOCAL ]: "http://localhost:4010",
+			[ ENV.DEV ]: "https://dev.api.getsafepay.com/order",
 			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com/order",
 			[ ENV.PRODUCTION ]: "https://production.getsafepay.com/order"
 		}
@@ -78,6 +86,7 @@ export let Config = {
 
 		return {
 			[ ENV.LOCAL ]: `${apiUrls.local}${paymentUri}`,
+			[ ENV.DEV ]: `${apiUrls.dev}${paymentUri}`,
 			[ ENV.SANDBOX ]: `${apiUrls.sandbox}${paymentUri}`,
 			[ ENV.PRODUCTION ]: `${apiUrls.production}${paymentUri}`
 		}

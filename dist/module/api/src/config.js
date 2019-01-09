@@ -5,7 +5,7 @@ export var Config = {
   env: ENV.LOCAL,
   checkoutUris: (_checkoutUris = {}, _checkoutUris[ENV.LOCAL] = "/checkout", _checkoutUris[ENV.SANDBOX] = "/dev/checkout", _checkoutUris[ENV.PRODUCTION] = "/now/checkout", _checkoutUris),
   buttonUris: (_buttonUris = {}, _buttonUris[ENV.LOCAL] = "", _buttonUris[ENV.SANDBOX] = "/trojan/button", _buttonUris[ENV.PRODUCTION] = "/trojan/button", _buttonUris),
-  paymentApiUri: "/transaction/v1/init",
+  paymentApiUri: "/v1/init",
 
   get safepayDomains() {
     var _ref;
