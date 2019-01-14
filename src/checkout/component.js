@@ -33,17 +33,21 @@ export const Checkout = create({
     popup:  true
   },
 
-  get domain() : Object {
+  get domain() {
     return {
       ...Config.safepayDomains,
       [ ENV.LOCAL ]: /^http:\/\/localhost:\d+$/
     };
   },
 
+  get bridgeUrl() {
+    return config.metaFrameUrls;
+  },
+
   defaultContext: 'popup',
   dimensions: {
-    width:  '450px',
-    height: '535px'
+    width:  '745px',
+    height: '820px'
   },
 
   prerenderTemplate: componentTemplate,
@@ -105,7 +109,7 @@ export const Checkout = create({
       required: false,
       once:     true,
       noop:     true,
-      decorate(original) : Function {
+      decorate(original) {
         return function decorateOnCancel(data, actions = {}) {
           let close = () => {
             return ZalgoPromise.try(() => {

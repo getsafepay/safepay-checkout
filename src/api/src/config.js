@@ -18,6 +18,13 @@ export let Config = {
 		[ ENV.PRODUCTION ]: "/button"
 	},
 
+	postBridgeUris: {
+    [ ENV.LOCAL ]:      "?xcomponent=1",
+    [ ENV.DEV ]:      	"/bridge?xcomponent=1",
+    [ ENV.SANDBOX ]:    "/bridge?xcomponent=1",
+    [ ENV.PRODUCTION ]: "/bridge?xcomponent=1",
+  },
+
   paymentApiUri:    `/v1/init`,
 
   get safepayDomains() {
@@ -33,8 +40,8 @@ export let Config = {
 		return {
 			[ ENV.LOCAL ]: "http://localhost:3000",
 			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
-			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
-			[ ENV.PRODUCTION ]: "https://production.getsafepay.com"
+			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
+			[ ENV.PRODUCTION ]: "https://getsafepay.com"
 		}
 	},
 
@@ -42,9 +49,18 @@ export let Config = {
 		return {
 			[ ENV.LOCAL ]: "http://localhost:3001",
 			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
-			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com",
-			[ ENV.PRODUCTION ]: "https://production.getsafepay.com"
+			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
+			[ ENV.PRODUCTION ]: "https://getsafepay.com"
 		}	
+	},
+
+	get bridgeDomains() {
+		return {
+			[ ENV.LOCAL ]: "http://localhost:3020",
+			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
+			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
+			[ ENV.PRODUCTION ]: "https://getsafepay.com"
+		}
 	},
 
 	get checkoutUrls() {
@@ -71,12 +87,24 @@ export let Config = {
 		}
 	},
 
+	get metaFrameUrls() {
+    let spUrls = config.bridgeDomains;
+    let postBridgeUris = config.postBridgeUris;
+
+    return {
+      [ ENV.LOCAL ]:      `${ spUrls.local }${ postBridgeUris.local }`,
+      [ ENV.DEV ]:      	`${ spUrls.dev }${ postBridgeUris.dev }`,
+      [ ENV.SANDBOX ]:    `${ spUrls.sandbox }${ postBridgeUris.sandbox }`,
+      [ ENV.PRODUCTION ]: `${ spUrls.production }${ postBridgeUris.production }`
+    };
+  },
+
 	get orderApiUrls() {
 		return {
 			[ ENV.LOCAL ]: "http://localhost:4010",
 			[ ENV.DEV ]: "https://dev.api.getsafepay.com/order",
-			[ ENV.SANDBOX ]: "https://sandbox.getsafepay.com/order",
-			[ ENV.PRODUCTION ]: "https://production.getsafepay.com/order"
+			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com/order",
+			[ ENV.PRODUCTION ]: "https://api.getsafepay.com/order"
 		}
 	},
 

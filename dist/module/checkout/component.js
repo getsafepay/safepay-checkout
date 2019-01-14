@@ -38,10 +38,14 @@ export var Checkout = create({
     return _extends({}, Config.safepayDomains, (_extends2 = {}, _extends2[ENV.LOCAL] = /^http:\/\/localhost:\d+$/, _extends2));
   },
 
+  get bridgeUrl() {
+    return config.metaFrameUrls;
+  },
+
   defaultContext: 'popup',
   dimensions: {
-    width: '450px',
-    height: '535px'
+    width: '745px',
+    height: '820px'
   },
   prerenderTemplate: componentTemplate,
   containerTemplate: containerTemplate,
