@@ -23,7 +23,7 @@ export function containerTemplate({ id, props, CLASS, on, container, tag, contex
                     }
                     #${ id } > .${ CLASS.OUTLET } {
                         width:  200px;
-                        height: 42px;
+                        height: 82px;
                     }
                      #${ id }.${ tag } > .${ CLASS.OUTLET } {
                         width: 100%;

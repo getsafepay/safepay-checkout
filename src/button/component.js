@@ -1,3 +1,5 @@
+/* @jsx jsxDom */
+
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api } from '../api';
@@ -26,6 +28,20 @@ export const Button = create({
   },
 
   containerTemplate,
+
+  // prerenderTemplate({ props, jsxDom }) {
+  //   let template = (
+  //     <div innerHTML={ componentTemplate({ props }) }></div>
+  //   );
+
+  //   return (
+  //     <html>
+  //       <body>
+  //         { template }
+  //       </body>
+  //     </html>
+  //   );
+  // },
 
   props: {
     client: {
