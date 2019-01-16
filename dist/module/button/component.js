@@ -21,18 +21,6 @@ export var Button = create({
     popup: false
   },
   containerTemplate: containerTemplate,
-  // prerenderTemplate({ props, jsxDom }) {
-  //   let template = (
-  //     <div innerHTML={ componentTemplate({ props }) }></div>
-  //   );
-  //   return (
-  //     <html>
-  //       <body>
-  //         { template }
-  //       </body>
-  //     </html>
-  //   );
-  // },
   props: {
     client: {
       type: 'object',

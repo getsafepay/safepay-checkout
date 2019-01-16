@@ -13,7 +13,7 @@ export var Checkout = create({
   scrolling: true,
   defaultEnv: 'local',
   buildUrl: function buildUrl(props) {
-    var env = props.env || config.env;
+    var env = props.env || Config.env;
 
     if (!props.payment) {
       throw new Error("Can not build url without payment prop");
@@ -39,7 +39,7 @@ export var Checkout = create({
   },
 
   get bridgeUrl() {
-    return config.metaFrameUrls;
+    return Config.metaFrameUrls;
   },
 
   defaultContext: 'popup',

@@ -88,8 +88,8 @@ export let Config = {
 	},
 
 	get metaFrameUrls() {
-    let spUrls = config.bridgeDomains;
-    let postBridgeUris = config.postBridgeUris;
+    let spUrls = Config.bridgeDomains;
+    let postBridgeUris = Config.postBridgeUris;
 
     return {
       [ ENV.LOCAL ]:      `${ spUrls.local }${ postBridgeUris.local }`,

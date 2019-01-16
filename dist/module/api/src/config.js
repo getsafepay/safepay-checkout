@@ -51,8 +51,8 @@ export var Config = {
   get metaFrameUrls() {
     var _ref7;
 
-    var spUrls = config.bridgeDomains;
-    var postBridgeUris = config.postBridgeUris;
+    var spUrls = Config.bridgeDomains;
+    var postBridgeUris = Config.postBridgeUris;
     return _ref7 = {}, _ref7[ENV.LOCAL] = "" + spUrls.local + postBridgeUris.local, _ref7[ENV.DEV] = "" + spUrls.dev + postBridgeUris.dev, _ref7[ENV.SANDBOX] = "" + spUrls.sandbox + postBridgeUris.sandbox, _ref7[ENV.PRODUCTION] = "" + spUrls.production + postBridgeUris.production, _ref7;
   },
 
