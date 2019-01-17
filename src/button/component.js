@@ -29,7 +29,16 @@ export const Button = create({
 
   containerTemplate,
 
+  validate() {
+    
+  },
+
   props: {
+    validate: {
+      type:     'function',
+      required: false,
+      once:     true
+    },
     client: {
       type: 'object',
       required: false,
@@ -86,6 +95,17 @@ export const Button = create({
         };
       }
     },
+    onClick: {
+      type:     'function',
+      required: false,
+      noop:     true,
+      decorate(original) {
+          return function decorateOnClick() {
+              return original.apply(this, arguments);
+          };
+      }
+    },
+
     amount: {
       type: 'number',
       required: false,

@@ -21,7 +21,13 @@ export var Button = create({
     popup: false
   },
   containerTemplate: containerTemplate,
+  validate: function validate() {},
   props: {
+    validate: {
+      type: 'function',
+      required: false,
+      once: true
+    },
     client: {
       type: 'object',
       required: false,
@@ -76,6 +82,16 @@ export var Button = create({
           return original.call(this, data, _extends({}, actions, {
             redirect: redirect
           }));
+        };
+      }
+    },
+    onClick: {
+      type: 'function',
+      required: false,
+      noop: true,
+      decorate: function decorate(original) {
+        return function decorateOnClick() {
+          return original.apply(this, arguments);
         };
       }
     },

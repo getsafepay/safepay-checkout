@@ -42,6 +42,7 @@ export var Checkout = create({
     return Config.metaFrameUrls;
   },
 
+  validate: function validate() {},
   defaultContext: 'popup',
   dimensions: {
     width: '745px',

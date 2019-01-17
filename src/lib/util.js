@@ -66,7 +66,21 @@ function getQueryParam(name) {
   return parseQuery(window.location.search.slice(1))[name];
 }
 
+function patchMethod(obj, name, handler) {
+  let original = obj[name];
+
+  obj[name] = function patchedMethod() {
+      return handler({
+          context:      this,
+          args:         Array.prototype.slice.call(arguments),
+          original,
+          callOriginal: () => original.apply(this, arguments)
+      });
+  };
+}
+
 exports.getQueryParam = getQueryParam;
 exports.redirect = redirect;
 exports.memoize = memoize;
 exports.noop = noop;
+exports.patchMethod = patchMethod;

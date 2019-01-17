@@ -8,21 +8,56 @@
 	<script src="../../dist/safepay-checkout.js"></script>
 </head>
 <body>
+
+    <p id="msg" style="display: none;">Please check the checkbox</p>
+    <p>
+        <label><input id="check" type="checkbox"> Check here to continue</label>
+    </p>
+
 	<div id="container"></div>
 
 	<div id="result"></div>
 
 	<script>
 
+        function isValid() {
+            return document.querySelector('#check').checked;
+        }
+
+        function onChangeCheckbox(handler) {
+            document.querySelector('#check').addEventListener('change', handler);
+        }
+
+        function toggleValidationMessage() {
+            document.querySelector('#msg').style.display = (isValid() ? 'none' : 'block');
+        }
+
+        function toggleButton(actions) {
+            console.log(isValid())
+            return isValid() ? actions.enable() : actions.disable();
+        }
+
         safepay.Button.render({
 
-            env: 'dev',
+            env: 'local',
 
             amount: 10.00,
 
             client: {
             	"local": "sec_4f84abd2-0bae-4476-be6b-22c8c9e35133",
                 "dev": "sec_b5ac169b-607e-4110-a9d5-4f22d68ebad3"
+            },
+
+            validate: function(actions) {
+                toggleButton(actions);
+
+                onChangeCheckbox(function() {
+                    toggleButton(actions);
+                });
+            },
+
+            onClick: function() {
+                toggleValidationMessage();
             },
 
             payment: function (data, actions) {
