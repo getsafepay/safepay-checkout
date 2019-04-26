@@ -1,6 +1,6 @@
 export const ENV = {
     LOCAL:      'local',
-    DEV:        'dev',
+    DEV:        'development',
     SANDBOX:    'sandbox',
     PRODUCTION: 'production'
 };

@@ -45,7 +45,7 @@
 
             client: {
             	"local": "sec_4f84abd2-0bae-4476-be6b-22c8c9e35133",
-                "dev": "sec_b5ac169b-607e-4110-a9d5-4f22d68ebad3"
+                "development": "sec_b5ac169b-607e-4110-a9d5-4f22d68ebad3"
             },
 
             validate: function(actions) {
@@ -56,9 +56,9 @@
                 });
             },
 
-            onClick: function() {
-                toggleValidationMessage();
-            },
+            // onClick: function() {
+            //     toggleValidationMessage();
+            // },
 
             payment: function (data, actions) {
             	return actions.payment.create({
