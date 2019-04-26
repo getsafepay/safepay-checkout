@@ -69,7 +69,7 @@ export let Config = {
 
 		return {
 			[ ENV.LOCAL ]: `${spUrls.local}${checkoutUris.local}`,
-			[ ENV.DEV ]: 		`${spUrls.dev}${checkoutUris.dev}`,
+			[ ENV.DEV ]: 		`${spUrls.development}${checkoutUris.development}`,
 			[ ENV.SANDBOX ]: `${spUrls.sandbox}${checkoutUris.sandbox}`,
 			[ ENV.PRODUCTION ]: `${spUrls.production}${checkoutUris.production}`	
 		}
@@ -81,7 +81,7 @@ export let Config = {
 
 		return {
 			[ ENV.LOCAL ]: `${spUrls.local}${buttonUris.local}`,
-			[ ENV.DEV ]: 	`${spUrls.dev}${buttonUris.dev}`,
+			[ ENV.DEV ]: 	`${spUrls.development}${buttonUris.development}`,
 			[ ENV.SANDBOX ]: `${spUrls.sandbox}${buttonUris.sandbox}`,
 			[ ENV.PRODUCTION ]: `${spUrls.production}${buttonUris.production}`
 		}
@@ -93,7 +93,7 @@ export let Config = {
 
     return {
       [ ENV.LOCAL ]:      `${ spUrls.local }${ postBridgeUris.local }`,
-      [ ENV.DEV ]:      	`${ spUrls.dev }${ postBridgeUris.dev }`,
+      [ ENV.DEV ]:      	`${ spUrls.development }${ postBridgeUris.development }`,
       [ ENV.SANDBOX ]:    `${ spUrls.sandbox }${ postBridgeUris.sandbox }`,
       [ ENV.PRODUCTION ]: `${ spUrls.production }${ postBridgeUris.production }`
     };
@@ -114,7 +114,7 @@ export let Config = {
 
 		return {
 			[ ENV.LOCAL ]: `${apiUrls.local}${paymentUri}`,
-			[ ENV.DEV ]: `${apiUrls.dev}${paymentUri}`,
+			[ ENV.DEV ]: `${apiUrls.development}${paymentUri}`,
 			[ ENV.SANDBOX ]: `${apiUrls.sandbox}${paymentUri}`,
 			[ ENV.PRODUCTION ]: `${apiUrls.production}${paymentUri}`
 		}

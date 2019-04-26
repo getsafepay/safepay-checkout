@@ -37,7 +37,7 @@ export var Config = {
 
     var spUrls = Config.checkoutDomains;
     var checkoutUris = Config.checkoutUris;
-    return _ref5 = {}, _ref5[ENV.LOCAL] = "" + spUrls.local + checkoutUris.local, _ref5[ENV.DEV] = "" + spUrls.dev + checkoutUris.dev, _ref5[ENV.SANDBOX] = "" + spUrls.sandbox + checkoutUris.sandbox, _ref5[ENV.PRODUCTION] = "" + spUrls.production + checkoutUris.production, _ref5;
+    return _ref5 = {}, _ref5[ENV.LOCAL] = "" + spUrls.local + checkoutUris.local, _ref5[ENV.DEV] = "" + spUrls.development + checkoutUris.development, _ref5[ENV.SANDBOX] = "" + spUrls.sandbox + checkoutUris.sandbox, _ref5[ENV.PRODUCTION] = "" + spUrls.production + checkoutUris.production, _ref5;
   },
 
   get buttonUrls() {
@@ -45,7 +45,7 @@ export var Config = {
 
     var spUrls = Config.buttonDomains;
     var buttonUris = Config.buttonUris;
-    return _ref6 = {}, _ref6[ENV.LOCAL] = "" + spUrls.local + buttonUris.local, _ref6[ENV.DEV] = "" + spUrls.dev + buttonUris.dev, _ref6[ENV.SANDBOX] = "" + spUrls.sandbox + buttonUris.sandbox, _ref6[ENV.PRODUCTION] = "" + spUrls.production + buttonUris.production, _ref6;
+    return _ref6 = {}, _ref6[ENV.LOCAL] = "" + spUrls.local + buttonUris.local, _ref6[ENV.DEV] = "" + spUrls.development + buttonUris.development, _ref6[ENV.SANDBOX] = "" + spUrls.sandbox + buttonUris.sandbox, _ref6[ENV.PRODUCTION] = "" + spUrls.production + buttonUris.production, _ref6;
   },
 
   get metaFrameUrls() {
@@ -53,7 +53,7 @@ export var Config = {
 
     var spUrls = Config.bridgeDomains;
     var postBridgeUris = Config.postBridgeUris;
-    return _ref7 = {}, _ref7[ENV.LOCAL] = "" + spUrls.local + postBridgeUris.local, _ref7[ENV.DEV] = "" + spUrls.dev + postBridgeUris.dev, _ref7[ENV.SANDBOX] = "" + spUrls.sandbox + postBridgeUris.sandbox, _ref7[ENV.PRODUCTION] = "" + spUrls.production + postBridgeUris.production, _ref7;
+    return _ref7 = {}, _ref7[ENV.LOCAL] = "" + spUrls.local + postBridgeUris.local, _ref7[ENV.DEV] = "" + spUrls.development + postBridgeUris.development, _ref7[ENV.SANDBOX] = "" + spUrls.sandbox + postBridgeUris.sandbox, _ref7[ENV.PRODUCTION] = "" + spUrls.production + postBridgeUris.production, _ref7;
   },
 
   get orderApiUrls() {
@@ -67,7 +67,7 @@ export var Config = {
 
     var apiUrls = Config.orderApiUrls;
     var paymentUri = Config.paymentApiUri;
-    return _ref9 = {}, _ref9[ENV.LOCAL] = "" + apiUrls.local + paymentUri, _ref9[ENV.DEV] = "" + apiUrls.dev + paymentUri, _ref9[ENV.SANDBOX] = "" + apiUrls.sandbox + paymentUri, _ref9[ENV.PRODUCTION] = "" + apiUrls.production + paymentUri, _ref9;
+    return _ref9 = {}, _ref9[ENV.LOCAL] = "" + apiUrls.local + paymentUri, _ref9[ENV.DEV] = "" + apiUrls.development + paymentUri, _ref9[ENV.SANDBOX] = "" + apiUrls.sandbox + paymentUri, _ref9[ENV.PRODUCTION] = "" + apiUrls.production + paymentUri, _ref9;
   }
 
 };
