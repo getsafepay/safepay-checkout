@@ -11,25 +11,25 @@ export var Config = {
   get safepayDomains() {
     var _ref;
 
-    return _ref = {}, _ref[ENV.LOCAL] = "http://localhost:3000", _ref[ENV.DEV] = "https://dev.api.getsafepay.com", _ref[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref[ENV.PRODUCTION] = "https://getsafepay.com", _ref;
+    return _ref = {}, _ref[ENV.LOCAL] = "http://localhost:3000", _ref[ENV.DEV] = "https://dev.api.getsafepay.com", _ref[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref[ENV.PRODUCTION] = "https://www.getsafepay.com", _ref;
   },
 
   get buttonDomains() {
     var _ref2;
 
-    return _ref2 = {}, _ref2[ENV.LOCAL] = "http://localhost:3000", _ref2[ENV.DEV] = "https://dev.api.getsafepay.com", _ref2[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref2[ENV.PRODUCTION] = "https://getsafepay.com", _ref2;
+    return _ref2 = {}, _ref2[ENV.LOCAL] = "http://localhost:3000", _ref2[ENV.DEV] = "https://dev.api.getsafepay.com", _ref2[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref2[ENV.PRODUCTION] = "https://www.getsafepay.com", _ref2;
   },
 
   get checkoutDomains() {
     var _ref3;
 
-    return _ref3 = {}, _ref3[ENV.LOCAL] = "http://localhost:3001", _ref3[ENV.DEV] = "https://dev.api.getsafepay.com", _ref3[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref3[ENV.PRODUCTION] = "https://getsafepay.com", _ref3;
+    return _ref3 = {}, _ref3[ENV.LOCAL] = "http://localhost:3001", _ref3[ENV.DEV] = "https://dev.api.getsafepay.com", _ref3[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref3[ENV.PRODUCTION] = "https://www.getsafepay.com", _ref3;
   },
 
   get bridgeDomains() {
     var _ref4;
 
-    return _ref4 = {}, _ref4[ENV.LOCAL] = "http://localhost:3020", _ref4[ENV.DEV] = "https://dev.api.getsafepay.com", _ref4[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref4[ENV.PRODUCTION] = "https://getsafepay.com", _ref4;
+    return _ref4 = {}, _ref4[ENV.LOCAL] = "http://localhost:3020", _ref4[ENV.DEV] = "https://dev.api.getsafepay.com", _ref4[ENV.SANDBOX] = "https://sandbox.api.getsafepay.com", _ref4[ENV.PRODUCTION] = "https://www.getsafepay.com", _ref4;
   },
 
   get checkoutUrls() {

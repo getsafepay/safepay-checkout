@@ -32,7 +32,7 @@ export let Config = {
   		[ ENV.LOCAL ]: "http://localhost:3000",
   		[ ENV.DEV ]: "https://dev.api.getsafepay.com",
 		  [ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
-		  [ ENV.PRODUCTION ]: "https://getsafepay.com"
+		  [ ENV.PRODUCTION ]: "https://www.getsafepay.com"
   	}
   },
 
@@ -41,7 +41,7 @@ export let Config = {
 			[ ENV.LOCAL ]: "http://localhost:3000",
 			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
 			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
-			[ ENV.PRODUCTION ]: "https://getsafepay.com"
+			[ ENV.PRODUCTION ]: "https://www.getsafepay.com"
 		}
 	},
 
@@ -50,7 +50,7 @@ export let Config = {
 			[ ENV.LOCAL ]: "http://localhost:3001",
 			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
 			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
-			[ ENV.PRODUCTION ]: "https://getsafepay.com"
+			[ ENV.PRODUCTION ]: "https://www.getsafepay.com"
 		}	
 	},
 
@@ -59,7 +59,7 @@ export let Config = {
 			[ ENV.LOCAL ]: "http://localhost:3020",
 			[ ENV.DEV ]: "https://dev.api.getsafepay.com",
 			[ ENV.SANDBOX ]: "https://sandbox.api.getsafepay.com",
-			[ ENV.PRODUCTION ]: "https://getsafepay.com"
+			[ ENV.PRODUCTION ]: "https://www.getsafepay.com"
 		}
 	},
 
