@@ -1769,6 +1769,15 @@ before-after-hook@^1.1.0:
   resolved "https://registry.yarnpkg.com/before-after-hook/-/before-after-hook-1.2.0.tgz#1079c10312cd4d4ad0d1676d37951ef8bfc3a563"
   integrity sha512-wI3QtdLppHNkmM1VgRVLCrlWCKk/YexlPicYbXPs4eYdd1InrUCTFsx5bX1iUQzzMsoRXXPpM1r+p7JEJJydag==
 
+belter@^1.0.77, belter@^1.0.95:
+  version "1.0.95"
+  resolved "https://registry.yarnpkg.com/belter/-/belter-1.0.95.tgz#3441841a3602b1ddd64b3a077a423842ba221211"
+  integrity sha512-UWQOhjP+IVWy9O4MvGYIxGyF2iPc/GJvb0oOEsIoPOJz25o4zedw3OB7V75bZHJDOvSgCg8DWNe88Ytjb7vi3Q==
+  dependencies:
+    cross-domain-safe-weakmap "^1.0.20"
+    cross-domain-utils "^2.0.10"
+    zalgo-promise "^1.0.28"
+
 better-assert@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/better-assert/-/better-assert-1.0.2.tgz#40866b9e1b9e0b55b481894311e68faffaebc522"
@@ -2693,17 +2702,17 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-domain-safe-weakmap@^1.0.1, cross-domain-safe-weakmap@^1.0.22:
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/cross-domain-safe-weakmap/-/cross-domain-safe-weakmap-1.0.22.tgz#a272895cfaaffbfcb1122c06ba7c0d16cf203355"
-  integrity sha512-/XnCB0hrDvSe88P11VIdyJJ68/pz9Gkz/KPgBtlF0bt6TZgrlub7cmmyC76iDgR7VHItpBaxYmtPN4fPOdCijw==
+cross-domain-safe-weakmap@^1.0.1, cross-domain-safe-weakmap@^1.0.20, cross-domain-safe-weakmap@^1.0.22:
+  version "1.0.25"
+  resolved "https://registry.yarnpkg.com/cross-domain-safe-weakmap/-/cross-domain-safe-weakmap-1.0.25.tgz#240f44b478cd0e1dc7023599f2d89d727fe260cf"
+  integrity sha512-8JcZJVsWv+Sor3V2MJKmTibLUwUWVqUevcceoMi/BY+3Ryn7KjniAFH+9h7zNL/HEA1jah7oUhoIgdazp9P31A==
   dependencies:
     cross-domain-utils "^2.0.0"
 
-cross-domain-utils@^2.0.0, cross-domain-utils@^2.0.16:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/cross-domain-utils/-/cross-domain-utils-2.0.16.tgz#8837ef96a51499c258891784c06d9f8cbd919c81"
-  integrity sha512-S8VPHiKY5LpRSzyQndQX+3YMmiI/uhR/AM7Dx9Kyz7eiTOXRz/KePiwg8aU+TjxOVhDL1GkAJS0ZUrmOaDIRqA==
+cross-domain-utils@^2.0.0, cross-domain-utils@^2.0.10, cross-domain-utils@^2.0.16:
+  version "2.0.25"
+  resolved "https://registry.yarnpkg.com/cross-domain-utils/-/cross-domain-utils-2.0.25.tgz#7b61c64b2a1c8a81a9fb1de4d3af24a92e836d83"
+  integrity sha512-l65JB6hftDXT6ZuIMoNp/IPgWHNVTl1E3bWeY6LhAAYKSpRu1TepxpDrrTqTQh9dJhihPv6oq/yAwf1v4F80pQ==
   dependencies:
     zalgo-promise "^1.0.11"
 
@@ -7602,9 +7611,9 @@ posix-character-classes@^0.1.0:
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
 post-robot@^8.0.29:
-  version "8.0.29"
-  resolved "https://registry.yarnpkg.com/post-robot/-/post-robot-8.0.29.tgz#015847b2182e68cac56744519179410ec001004f"
-  integrity sha512-oLgDaMeNv4ndpESvu/5/vHmVymSvBQVxtPWiy2LCfV5kp1se/uLMo8SqUblsD6Wndv42FNkfSCB0yUNBg4+Qyw==
+  version "8.0.30"
+  resolved "https://registry.yarnpkg.com/post-robot/-/post-robot-8.0.30.tgz#5aac91bb996751549a3c273507b6448a293f6c1f"
+  integrity sha512-xo4TudIX85q2vKehlGcVlbYJyrG+2CU+s5zXDpxAba8RzjGPAT2GXpCzNI2TDaiB+UH1Y/rgSNC9tKSyVNwW8g==
   dependencies:
     cross-domain-safe-weakmap "^1.0.1"
     cross-domain-utils "^2.0.0"
@@ -10057,17 +10066,18 @@ yeast@0.1.2:
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
   integrity sha1-AI4G2AlDIMNy28L47XagymyKxBk=
 
-zalgo-promise@^1.0.11, zalgo-promise@^1.0.26, zalgo-promise@^1.0.3, zalgo-promise@^1.0.34:
-  version "1.0.34"
-  resolved "https://registry.yarnpkg.com/zalgo-promise/-/zalgo-promise-1.0.34.tgz#b31376b420e79f4380d2137c1ee0e06587261921"
-  integrity sha512-olG4X/Lb1v/pmijrSmKqdNhiFbcsmPxENgYitkT4rISsIwfO/5kr89MkzapJZuFeRFJxut9/BilSgNM01DUKxg==
+zalgo-promise@^1.0.11, zalgo-promise@^1.0.26, zalgo-promise@^1.0.28, zalgo-promise@^1.0.3, zalgo-promise@^1.0.34:
+  version "1.0.38"
+  resolved "https://registry.yarnpkg.com/zalgo-promise/-/zalgo-promise-1.0.38.tgz#6acdb8990954eabab505c0c3bde47523fd927d33"
+  integrity sha512-+dj0kZU9poywiJ3nIFns3o10XXbbptugvO51TxwD8/V0SIEi+Jw/of0MeJZ8CO7gH9jqzD0MQ/Q1PXAx8GlOQw==
 
 zoid@^6.0.67:
-  version "6.0.67"
-  resolved "https://registry.yarnpkg.com/zoid/-/zoid-6.0.67.tgz#86a589d9be7d577965b690201e44d7b3028d29d4"
-  integrity sha512-mJ/OIB+vnYAaqK4brkiDcYWpB1lK++NeWxdmIL24+8PhWEMqUJxstW5Kd7cNVKiG7TrjeIqdBpT4zJhasbM0tg==
+  version "6.0.72"
+  resolved "https://registry.yarnpkg.com/zoid/-/zoid-6.0.72.tgz#fc3ee48c63910245c0147a12fa1d9602c50bd54f"
+  integrity sha512-w9eQk0VznngDvv7djgdxrltjdaT0M87kfSId9ITIOmRuWLng0IIVscE/QCGJjzCkmmP77e1u5/vUoW6Xv3mRQg==
   dependencies:
     beaver-logger "^3.0.17"
+    belter "^1.0.77"
     cross-domain-safe-weakmap "^1.0.22"
     cross-domain-utils "^2.0.16"
     hi-base32 "^0.5.0"

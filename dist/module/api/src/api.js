@@ -35,7 +35,8 @@ function createPaymentTracker(env, client, details) {
   return fetch.post(Config.paymentApiUrls[env], {
     environment: env,
     client: client,
-    amount: amount
+    amount: amount,
+    currency: currency
   }).then(function (_ref) {
     var data = _ref.data;
     return data.data;

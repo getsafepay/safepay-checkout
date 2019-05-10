@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "belter": "^1.0.95",
     "grumbler-scripts": "^3",
     "serve": "^10.0.2",
     "zoid": "^6.0.67"

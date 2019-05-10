@@ -4,7 +4,7 @@ import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
 import { Config, api } from '../api';
 import { containerTemplate } from './templates'
-import { redirect as redir } from '../lib';
+import { redirect as redir, currencies } from '../lib';
 
 export const Button = create({
   tag: 'safepay-button',
@@ -109,6 +109,18 @@ export const Button = create({
     amount: {
       type: 'number',
       required: false,
+    },
+    currency: {
+      type: 'string',
+      required: false,
+      default: function() {
+        return 'PKR'
+      },
+      validate: function(value, props) {
+        if (!currencies[value]) {
+          throw new Error('Safepay Error: Invalid currency');
+        }
+      }
     },
     onCheckout: {
       type: 'function',

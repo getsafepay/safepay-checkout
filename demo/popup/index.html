@@ -43,6 +43,8 @@
 
             amount: 10.00,
 
+            currency: 'USD',
+
             client: {
             	"local": "sec_e4ab858b-77da-42df-b498-a301b3e9ed72",
                 "development": "sec_b5ac169b-607e-4110-a9d5-4f22d68ebad3"
@@ -56,15 +58,11 @@
                 });
             },
 
-            // onClick: function() {
-            //     toggleValidationMessage();
-            // },
-
             payment: function (data, actions) {
             	return actions.payment.create({
             		transaction: {
             			amount: 10.00,
-            			currency: 'PKR'
+            			currency: 'USD'
             		}
             	})
             },

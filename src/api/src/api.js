@@ -21,7 +21,8 @@ function createPaymentTracker(env="local", client="", details={}) {
 	  Config.paymentApiUrls[env], {
 	 		environment: env,
 	 		client: client,
-	 		amount: amount
+	 		amount: amount,
+      currency: currency
 	 	}
 	).then(({ data }) => {
     return data.data
