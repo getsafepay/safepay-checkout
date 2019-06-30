@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "demo": "echo 'Navigate to http://localhost:1337/demo/popup/index.html' && serve . -l 1337",
+    "demo": "echo 'Navigate to http://localhost:1337/demo/popup/index.html' && serve . --listen 1337",
     "babel": "babel src/ --out-dir dist/module",
     "webpack": "babel-node --plugins=transform-es2015-modules-commonjs ./node_modules/.bin/webpack --progress",
     "build": "yarn run clean && yarn run babel && yarn run webpack",
