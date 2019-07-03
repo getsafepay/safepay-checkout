@@ -27,7 +27,7 @@ npm test
 Run in dev mode:
 
 ```bash
-npm run dev
+npm run demo
 ```
 
 ## Test Tasks
