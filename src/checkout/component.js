@@ -87,6 +87,20 @@ export const Checkout = create({
         }
       }
     },
+    customer: {
+      type: 'object',
+      required: false,
+      def() {
+        return {}
+      }
+    },
+    billing: {
+      type: 'object',
+      required: false,
+      def() {
+        return {}
+      }
+    },
     payment: {
       type: 'function',
       required: true,

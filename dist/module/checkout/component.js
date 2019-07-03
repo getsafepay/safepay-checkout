@@ -78,6 +78,20 @@ export var Checkout = create({
         }
       }
     },
+    customer: {
+      type: 'object',
+      required: false,
+      def: function def() {
+        return {};
+      }
+    },
+    billing: {
+      type: 'object',
+      required: false,
+      def: function def() {
+        return {};
+      }
+    },
     payment: {
       type: 'function',
       required: true,
