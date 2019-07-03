@@ -1,15 +1,13 @@
 import _extends from "@babel/runtime/helpers/esm/extends";
 
-var _onCheckout, _create;
+var _onCheckout;
 
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
-import { CONTEXT_TYPES } from 'zoid/src/constants';
-import { isDevice, supportsPopups } from 'belter/src';
 import { Config, api, ENV } from '../api';
 import { containerTemplate, componentTemplate } from './templates';
 import { redirect as redir, getQueryParam } from '../lib';
-export var Checkout = create((_create = {
+export var Checkout = create({
   tag: 'safepay-checkout',
   name: 'spcheckout',
   scrolling: true,
@@ -29,7 +27,10 @@ export var Checkout = create((_create = {
       return Config.checkoutUrls[env];
     });
   },
-  defaultContext: supportsPopups() ? CONTEXT_TYPES.POPUP : CONTEXT_TYPES.IFRAME,
+  contexts: {
+    iframe: false,
+    popup: true
+  },
 
   get domain() {
     var _extends2;
@@ -41,109 +42,128 @@ export var Checkout = create((_create = {
     return Config.metaFrameUrls;
   },
 
-  validate: function validate() {}
-}, _create["defaultContext"] = 'popup', _create.dimensions = {
-  width: '745px',
-  height: '820px'
-}, _create.prerenderTemplate = componentTemplate, _create.containerTemplate = containerTemplate, _create.props = {
-  client: {
-    type: 'object',
-    required: false,
-    def: function def() {
-      return {};
-    },
-    validate: function validate(client, props) {
-      var env = props.env || Config.env;
+  validate: function validate() {},
+  defaultContext: 'popup',
+  dimensions: {
+    width: '745px',
+    height: '820px'
+  },
+  prerenderTemplate: componentTemplate,
+  containerTemplate: containerTemplate,
+  props: {
+    client: {
+      type: 'object',
+      required: false,
+      def: function def() {
+        return {};
+      },
+      validate: function validate(client, props) {
+        var env = props.env || Config.env;
 
-      if (!client[env]) {
-        throw new Error("Client ID not found for env: " + env);
-      }
-    }
-  },
-  env: {
-    type: 'string',
-    required: false,
-    queryParam: true,
-    def: function def() {
-      return Config.env;
-    },
-    validate: function validate(env) {
-      if (!Config.safepayDomains[env]) {
-        throw new Error("Invalid env: " + env);
-      }
-    }
-  },
-  payment: {
-    type: 'function',
-    required: true,
-    memoize: true,
-    promisify: true,
-    queryParam: function queryParam(payment) {
-      return "beacon";
-    },
-    queryValue: function queryValue(payment) {
-      return payment();
-    },
-    childDecorate: function childDecorate(payment) {
-      var token = getQueryParam('beacon');
-      return token ? ZalgoPromise.resolve(token) : payment;
-    },
-    validate: function validate(payment, props) {
-      if (!payment && !props.url) {
-        throw new Error("Expected either props.payment or props.url to be passed");
-      }
-    }
-  },
-  onCancel: {
-    type: 'function',
-    required: false,
-    once: true,
-    noop: true,
-    decorate: function decorate(original) {
-      return function decorateOnCancel(data, actions) {
-        var _this = this;
-
-        if (actions === void 0) {
-          actions = {};
+        if (!client[env]) {
+          throw new Error("Client ID not found for env: " + env);
         }
+      }
+    },
+    env: {
+      type: 'string',
+      required: false,
+      queryParam: true,
+      def: function def() {
+        return Config.env;
+      },
+      validate: function validate(env) {
+        if (!Config.safepayDomains[env]) {
+          throw new Error("Invalid env: " + env);
+        }
+      }
+    },
+    customer: {
+      type: 'object',
+      required: false,
+      def: function def() {
+        return {};
+      }
+    },
+    billing: {
+      type: 'object',
+      required: false,
+      def: function def() {
+        return {};
+      }
+    },
+    payment: {
+      type: 'function',
+      required: true,
+      memoize: true,
+      promisify: true,
+      queryParam: function queryParam(payment) {
+        return "beacon";
+      },
+      queryValue: function queryValue(payment) {
+        return payment();
+      },
+      childDecorate: function childDecorate(payment) {
+        var token = getQueryParam('beacon');
+        return token ? ZalgoPromise.resolve(token) : payment;
+      },
+      validate: function validate(payment, props) {
+        if (!payment && !props.url) {
+          throw new Error("Expected either props.payment or props.url to be passed");
+        }
+      }
+    },
+    onCancel: {
+      type: 'function',
+      required: false,
+      once: true,
+      noop: true,
+      decorate: function decorate(original) {
+        return function decorateOnCancel(data, actions) {
+          var _this = this;
 
-        var close = function close() {
+          if (actions === void 0) {
+            actions = {};
+          }
+
+          var close = function close() {
+            return ZalgoPromise.try(function () {
+              if (actions.close) {
+                return actions.close();
+              }
+            }).then(function () {
+              return _this.closeComponent();
+            });
+          };
+
+          var redirect = function redirect(win, url) {
+            return ZalgoPromise.all([redir(win || window.top, url || data.cancelUrl), close()]);
+          };
+
           return ZalgoPromise.try(function () {
-            if (actions.close) {
-              return actions.close();
-            }
-          }).then(function () {
-            return _this.closeComponent();
+            return original.call(_this, data, _extends({}, actions, {
+              close: close,
+              redirect: redirect
+            }));
+          }).finally(function () {
+            _this.close();
           });
         };
-
-        var redirect = function redirect(win, url) {
-          return ZalgoPromise.all([redir(win || window.top, url || data.cancelUrl), close()]);
-        };
+      }
+    },
+    onCheckout: (_onCheckout = {
+      type: 'function',
+      required: false
+    }, _onCheckout["required"] = false, _onCheckout.noop = true, _onCheckout.once = true, _onCheckout.decorate = function decorate(original) {
+      return function decorateOnCheckout(data) {
+        var _this2 = this;
 
         return ZalgoPromise.try(function () {
-          return original.call(_this, data, _extends({}, actions, {
-            close: close,
-            redirect: redirect
-          }));
+          return original.call(_this2, data);
         }).finally(function () {
-          _this.close();
+          _this2.close();
         });
       };
-    }
-  },
-  onCheckout: (_onCheckout = {
-    type: 'function',
-    required: false
-  }, _onCheckout["required"] = false, _onCheckout.noop = true, _onCheckout.once = true, _onCheckout.decorate = function decorate(original) {
-    return function decorateOnCheckout(data) {
-      var _this2 = this;
-
-      return ZalgoPromise.try(function () {
-        return original.call(_this2, data);
-      }).finally(function () {
-        _this2.close();
-      });
-    };
-  }, _onCheckout)
-}, _create));
+    }, _onCheckout)
+  }
+});

@@ -1,7 +1,5 @@
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { create } from 'zoid/src';
-import { CONTEXT_TYPES } from 'zoid/src/constants';
-import { isDevice, supportsPopups } from 'belter/src';
 import { Config, api, ENV } from '../api';
 import { containerTemplate, componentTemplate } from './templates';
 import { redirect as redir, getQueryParam } from '../lib';
@@ -30,7 +28,10 @@ export const Checkout = create({
     });
   },
   
-  defaultContext: supportsPopups() ? CONTEXT_TYPES.POPUP : CONTEXT_TYPES.IFRAME,
+  contexts: {
+    iframe: false,
+    popup:  true
+  },
 
   get domain() {
     return {
@@ -84,6 +85,20 @@ export const Checkout = create({
         if (!Config.safepayDomains[env]) {
           throw new Error(`Invalid env: ${ env }`);
         }
+      }
+    },
+    customer: {
+      type: 'object',
+      required: false,
+      def() {
+        return {}
+      }
+    },
+    billing: {
+      type: 'object',
+      required: false,
+      def() {
+        return {}
       }
     },
     payment: {
