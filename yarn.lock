@@ -4391,7 +4391,7 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-grumbler-scripts@3.0.2:
+grumbler-scripts@3.0.21:
   version "3.0.21"
   resolved "https://registry.yarnpkg.com/grumbler-scripts/-/grumbler-scripts-3.0.21.tgz#84474e5a7aab58ccd9e0115ccc01d18c97f17c12"
   integrity sha512-OU+vhdt1sShuvF9aem+1qz2rFOM/HMlyHiofgWii4f9uooAA0cQGIT0tTrVfgygx71jj16OAStempVCoa4f+zQ==
@@ -6766,9 +6766,9 @@ node-alias@^1.0.4:
     lodash "^4.2.0"
 
 node-fetch@^2.1.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.2.1.tgz#1fe551e0ded6c45b3b3b937d0fb46f76df718d1e"
-  integrity sha512-ObXBpNCD3A/vYQiQtEWl7DuqjAXjfptYFuGHLdPl5U19/6kJuZV+8uMHLrkj3wJrJoyfg4nhgyFixZdaZoAiEQ==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-gyp@~3.4.0:
   version "3.4.0"
