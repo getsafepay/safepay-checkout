@@ -4391,7 +4391,7 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-grumbler-scripts@3.0.2:
+grumbler-scripts@3.0.21:
   version "3.0.21"
   resolved "https://registry.yarnpkg.com/grumbler-scripts/-/grumbler-scripts-3.0.21.tgz#84474e5a7aab58ccd9e0115ccc01d18c97f17c12"
   integrity sha512-OU+vhdt1sShuvF9aem+1qz2rFOM/HMlyHiofgWii4f9uooAA0cQGIT0tTrVfgygx71jj16OAStempVCoa4f+zQ==
@@ -4881,9 +4881,9 @@ inherits@2.0.1:
   integrity sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
 
 ini@^1.3.4, ini@~1.3.0, ini@~1.3.4:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
-  integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.7.tgz#a09363e1911972ea16d7a8851005d84cf09a9a84"
+  integrity sha512-iKpRpXP+CrP2jyrxvg1kMUpXDyRUFDWurxbnVT1vQPx+Wz9uCYsMIqYuSBLV+PAaZG/d7kRLKRFc9oDMsH+mFQ==
 
 init-package-json@~1.9.4:
   version "1.9.6"
