@@ -13,7 +13,7 @@
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "belter": "^1.0.95",
     "grumbler-scripts": "3.0.21",
     "serve": "^11.0.2",
